@@ -1,0 +1,13 @@
+﻿@model BookStore.Models.BookForAdd
+
+@using (Html.BeginForm("AddToCart", "Home", FormMethod.Post))
+{
+    <tr>
+        @Html.HiddenFor(b => b.Id)
+        <td style="width: 15%"><p>@Html.Display("Name", Model.Name)</p></td>
+        <td style="width: 15%"><p>@Html.Display("Author", Model.Author)</p></td>
+        <td style="width: 15%"><p>@Html.Display("Price", Model.Price)</p></td>
+        <td style="width: 15%"><p>@Html.EditorFor(b => b.Quantity, new { htmlAttributes = new { @min = "1", @max = Model.Quantity } })</p></td>
+        <td style="width: 15%"><p><button type="submit">Добавить в корзину</button></p></td>
+    </tr>
+}

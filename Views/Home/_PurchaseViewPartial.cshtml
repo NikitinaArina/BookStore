@@ -1,0 +1,27 @@
+﻿@model BookStore.Models.PurchaseForMake
+<div class="panel-success">
+    <div class="panel-heading text-center">
+        <h4>Оформление заказа</h4>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("MakeOrder", "Home", FormMethod.Post))
+        {
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label>Ваше ФИО:</label>
+                @Html.TextBoxFor(x => x.Person, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Ваш email:</label>
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Ваш телефон:</label>
+                @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+            </div>
+            <div class="text-center">
+                <input type="submit" value="Оформить заказ" class="btn btn-success" />
+            </div>
+        }
+    </div>
+</div>

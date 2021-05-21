@@ -1,0 +1,33 @@
+﻿@model BookStore.Models.Book
+@{
+    ViewBag.Title = "Добавить книгу";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel-success">
+    <div class="panel-body">
+        @using (Html.BeginForm("AddBookPost", "Home", FormMethod.Post))
+        {
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label>Название:</label>
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Автор:</label>
+                @Html.TextBoxFor(x => x.Author, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Количество:</label>
+                @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Цена:</label>
+                @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+            </div>
+            <div class="text-center">
+                <input type="submit" value="Добавить" class="btn btn-success" />
+            </div>
+        }
+    </div>
+</div>
